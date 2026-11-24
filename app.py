@@ -4,7 +4,11 @@ import streamlit as st
 from pathlib import Path
 
 # The saved pipeline sits in models/ next to the app folder
-MODEL_PATH = Path(__file__).resolve().parent.parent / "models" / "G01_model.joblib"
+HERE = Path(__file__).resolve().parent
+CANDIDATES = [HERE / "models" / "G01_model.joblib",
+              HERE.parent / "models" / "G01_model.joblib",
+              HERE / "G01_model.joblib"]
+MODEL_PATH = next((p for p in CANDIDATES if p.exists()), CANDIDATES[0])   # first place the model is found
 THRESHOLD = 0.30   # chosen in Task 5: a missed deserving student is worse than one extra interview
 
 st.set_page_config(page_title="Scholarship nomination helper", page_icon=":mortar_board:")
