@@ -1,0 +1,5 @@
+attribute,group,test_rows,actual_high_scorers,recall
+Gender,Female,555,127,0.8503937007874016
+Gender,Male,767,198,0.8636363636363636
+School_Type,Private,412,101,0.8514851485148515
+School_Type,Public,910,224,0.8616071428571429
